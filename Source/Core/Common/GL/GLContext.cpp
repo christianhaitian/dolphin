@@ -17,6 +17,9 @@
 #endif
 #if HAVE_EGL
 #include "Common/GL/GLInterface/EGL.h"
+#if HAVE_EGL_SDL2
+#include "Common/GL/GLInterface/EGLSDL2.h"
+#endif
 #if HAVE_X11
 #include "Common/GL/GLInterface/EGLX11.h"
 #endif
@@ -107,7 +110,10 @@ std::unique_ptr<GLContext> GLContext::Create(const WindowSystemInfo& wsi, bool s
 #endif
   }
 #endif
-#if HAVE_EGL
+
+#if HAVE_EGL_SDL2
+    context = std::make_unique<GLContextEGLSDL2>();
+#elif HAVE_EGL
   if (wsi.type == WindowSystemType::Headless || wsi.type == WindowSystemType::FBDev)
     context = std::make_unique<GLContextEGL>();
 #endif

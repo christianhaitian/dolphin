@@ -26,6 +26,16 @@ PRIVATE
   cpp-optparse
 )
 
+if(ENABLE_EGL_SDL2)
+  find_package(SDL2 REQUIRED)
+  if (SDL2_FOUND)
+    target_link_libraries(dolphin-nogui
+    PUBLIC
+    ${SDL2_LIBRARIES}
+    )
+  endif()
+endif()
+
 if(USE_DISCORD_PRESENCE)
   target_compile_definitions(dolphin-nogui PRIVATE -DUSE_DISCORD_PRESENCE)
 endif()

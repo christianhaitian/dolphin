@@ -241,6 +241,15 @@ if(ENABLE_EGL AND EGL_FOUND)
   target_link_libraries(common PUBLIC ${EGL_LIBRARIES})
 endif()
 
+if(ENABLE_EGL_SDL2 AND SDL2_FOUND)
+  target_sources(common PRIVATE
+    GL/GLInterface/EGLSDL2.cpp
+    GL/GLInterface/EGLSDL2.h
+  )
+  target_include_directories(common PRIVATE ${SDL2_INCLUDE_DIRS})
+  target_link_libraries(common PUBLIC ${SDL2_LIBRARIES})
+endif()
+
 if(WIN32)
   target_sources(common PRIVATE
     CompatPatches.cpp
