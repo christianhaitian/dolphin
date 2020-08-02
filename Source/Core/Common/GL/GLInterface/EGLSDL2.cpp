@@ -59,7 +59,7 @@ void GLContextEGLSDL2::DetectMode()
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES);
 
-  SDL_Window* gles3_window = SDL_CreateWindow("", 0, 0, dm.w, dm.h, SDL_WINDOW_HIDDEN | SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN);
+  SDL_Window* gles3_window = SDL_CreateWindow("", 0, 0, dm.w, dm.h, SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN);
   SDL_GLContext gles3_context = SDL_GL_CreateContext(gles3_window);
   if (gles3_context != nullptr)
   {
@@ -74,7 +74,7 @@ void GLContextEGLSDL2::DetectMode()
 
   // Test for OpenGL 3.0 (core profile)
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-  SDL_Window* glcore3_window = SDL_CreateWindow("", 0, 0, dm.w, dm.h, SDL_WINDOW_HIDDEN | SDL_WINDOW_OPENGL);
+  SDL_Window* glcore3_window = SDL_CreateWindow("", 0, 0, dm.w, dm.h, SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN);
   SDL_GLContext glcore3_context = SDL_GL_CreateContext(glcore3_window);
   if (glcore3_context != nullptr)
   {
@@ -88,7 +88,7 @@ void GLContextEGLSDL2::DetectMode()
 
   // Test for OpenGL 3.0 (compatibility profile)
   SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_COMPATIBILITY);
-  SDL_Window* glcomp3_window = SDL_CreateWindow("", 0, 0, dm.w, dm.h, SDL_WINDOW_HIDDEN | SDL_WINDOW_OPENGL);
+  SDL_Window* glcomp3_window = SDL_CreateWindow("", 0, 0, dm.w, dm.h, SDL_WINDOW_OPENGL | SDL_FULLSCREEN);
   SDL_GLContext glcomp3_context = SDL_GL_CreateContext(glcomp3_window);
   if (glcomp3_context != nullptr)
   {
