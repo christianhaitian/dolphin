@@ -33,17 +33,11 @@ public:
   void* GetFuncAddress(const std::string& name) override;
 
 protected:
-  virtual SDL_Window* OpenSDL2Window();
-
   bool Initialize(const WindowSystemInfo& wsi, bool stereo, bool core) override;
 
   void DetectMode();
   void DestroyContext();
 
-  WindowSystemInfo m_wsi = {};
-
-  bool m_supports_surfaceless = false;
-
   SDL_Window* m_window = nullptr;
-  SDL_GLContext m_egl_context = nullptr;
+  SDL_GLContext m_egl_context;
 };
