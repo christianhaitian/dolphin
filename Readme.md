@@ -8,6 +8,21 @@ of the GNU General Public License, version 2 or later (GPLv2+).
 
 Please read the [FAQ](https://dolphin-emu.org/docs/faq/) before using Dolphin.
 
+## Build for RK3326 devices (Ubuntu 16.04 or newer)
+### Prereqs:
+liblzma-dev \
+`sudo apt install liblzma-dev`
+
+`git clone https://github.com/christianhaitian/dolphin.git --recursive` \
+`cd dolphin` \
+`mkdir Build` \
+`cd Build` \
+`cmake .. -DLINUX_LOCAL_DEV=true` \
+`make -j$(nproc)` \
+`cp -r ../Data/Sys/ Binaries/` \
+`touch Binaries/portable.txt`
+
+
 ## System Requirements
 
 ### Desktop
